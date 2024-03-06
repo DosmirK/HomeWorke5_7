@@ -6,23 +6,23 @@
     tools:context=".WeatherFragment">
 
     <TextView
+        android:id="@+id/tv_city"
+        android:layout_marginTop="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
-        android:id="@+id/tv_city"
-        tools:text="Bishkek"
+        android:textColor="@color/black"
         android:textSize="36sp"
-        android:textColor="@color/black"/>
+        tools:text="Bishkek" />
 
     <TextView
+        android:id="@+id/tv_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:layout_marginTop="128dp"
-        tools:text="8"
-        android:textSize="64sp"
+        android:layout_gravity="center"
         android:textColor="@color/black"
-        android:id="@+id/tv_temp"/>
+        android:textSize="64sp"
+        tools:text="8" />
 
     <TextView
         android:id="@+id/tv_description"
@@ -30,8 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="100dp"
-        tools:text="Description:"
-        android:textSize="24sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        tools:text="Description:" />
 
 </FrameLayout>

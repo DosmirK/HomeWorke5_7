@@ -12,10 +12,10 @@ import retrofit2.create
 @InstallIn(SingletonComponent::class)
 object Module {
 
-
     @Provides
     fun provideWeatherApi(): WeatherApi {
         return Retrofit.Builder().baseUrl("https://api.openweathermap.org/")
             .addConverterFactory(GsonConverterFactory.create()).build().create(WeatherApi::class.java)
     }
+
 }

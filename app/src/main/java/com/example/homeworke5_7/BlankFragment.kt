@@ -28,12 +28,18 @@ class BlankFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnWeather.setOnClickListener {
-            viewModel.getWeather(binding.etCityName.text.toString())
+            viewModel.getWeather(binding.etCityName.text.toString()).observe(viewLifecycleOwner) {
+                val bundle = Bundle()
+                bundle.putSerializable("model", it)
+                val weatherFragment = WeatherFragment()
+                weatherFragment.arguments = bundle
 
-            val fragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.fragment_container, WeatherFragment())
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, weatherFragment)
+                    .addToBackStack(null)
+                    .commit()
+
+            }
         }
     }
 }

@@ -11,8 +11,8 @@ class Repository @Inject constructor(private val api: WeatherApi) {
 
     fun getWeather(
         city: String,
-        liveData: MutableLiveData<WeatherModel?>
-    ){
+        liveData: MutableLiveData<WeatherModel>
+    ):MutableLiveData<WeatherModel>{
         api.getWeather(city = city).enqueue(object : Callback<WeatherModel>{
             override fun onResponse(call: Call<WeatherModel>, response: Response<WeatherModel>) {
                 if (response.isSuccessful){
@@ -26,5 +26,6 @@ class Repository @Inject constructor(private val api: WeatherApi) {
                 Log.e("ololo", "onFailure: ${t.message}")
             }
         })
+        return liveData
     }
 }
